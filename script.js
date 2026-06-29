@@ -11,16 +11,6 @@ document.addEventListener("contextmenu", (event) => {
   event.preventDefault();
 });
 
-const updateProgress = () => {
-  const maxScroll = document.documentElement.scrollHeight - window.innerHeight;
-  const progress = maxScroll > 0 ? window.scrollY / maxScroll : 0;
-  root.style.setProperty("--scroll", progress.toFixed(4));
-};
-
-updateProgress();
-window.addEventListener("scroll", updateProgress, { passive: true });
-window.addEventListener("resize", updateProgress);
-
 const revealObserver = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
@@ -61,13 +51,3 @@ const sectionObserver = new IntersectionObserver(
 );
 
 sections.forEach((section) => sectionObserver.observe(section));
-
-const dimensionCards = document.querySelectorAll(".dimension-card");
-
-dimensionCards.forEach((card) => {
-  card.addEventListener("click", () => {
-    dimensionCards.forEach((item) => {
-      item.classList.toggle("is-active", item === card);
-    });
-  });
-});
