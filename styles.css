@@ -229,42 +229,32 @@ main,
   transform: translate(-50%, 0);
 }
 
-.apple-mark {
-  position: relative;
-  display: inline-block;
-  width: 15px;
-  height: 18px;
-  background: #ffffff;
-  border-radius: 48% 48% 42% 42%;
+.app-store-icon {
+  width: 22px;
+  height: 22px;
+  flex: none;
 }
 
-.apple-mark::before {
-  position: absolute;
-  top: -7px;
-  left: 8px;
-  width: 8px;
-  height: 8px;
-  background: #ffffff;
-  border-radius: 8px 0 8px 0;
-  content: "";
-  transform: rotate(-28deg);
+.app-store-icon rect,
+.app-store-icon path {
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
 }
 
-.apple-mark::after {
-  position: absolute;
-  top: 5px;
-  right: -4px;
-  width: 6px;
-  height: 8px;
-  background: #111111;
-  border-radius: 50%;
-  content: "";
+.app-store-icon rect {
+  stroke-width: 1.8px;
+}
+
+.app-store-icon path {
+  stroke-width: 1.9px;
 }
 
 .preview-section,
 .features-section,
 .pricing-section,
-.help-section {
+.template-section {
   padding: 96px 0;
   border-top: 1px solid var(--line);
 }
@@ -529,7 +519,9 @@ main,
 .feature-card,
 .price-card,
 .pro-benefits,
-.help-section {
+.template-section,
+.template-preview-card,
+.download-card {
   background: rgba(255, 255, 255, 0.82);
   border: 1px solid var(--line);
   border-radius: var(--radius);
@@ -562,7 +554,10 @@ main,
 }
 
 .feature-card p,
-.price-card p {
+.price-card p,
+.template-preview-card p,
+.download-card p,
+.templates-intro {
   margin-bottom: 0;
   color: var(--muted);
 }
@@ -633,18 +628,119 @@ main,
   content: "";
 }
 
-.help-section {
+.template-section {
   margin-bottom: 90px;
   padding: 66px 30px;
+  text-align: center;
 }
 
-.help-section .section-copy {
+.template-section .section-copy {
   margin-bottom: 0;
 }
 
-.help-section a,
 .site-footer a:hover {
   color: var(--brand);
+}
+
+.template-preview-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+  margin-top: 34px;
+}
+
+.template-preview-card {
+  min-height: 210px;
+  padding: 26px;
+  text-align: left;
+}
+
+.template-preview-card span,
+.download-type {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 28px;
+  margin-bottom: 28px;
+  padding: 0 10px;
+  background: var(--brand-soft);
+  color: var(--brand);
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 820;
+}
+
+.template-preview-card h3,
+.download-card h2 {
+  margin-bottom: 10px;
+  font-size: 22px;
+  line-height: 1.2;
+}
+
+.secondary-button,
+.download-link {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 46px;
+  border-radius: 999px;
+  font-weight: 780;
+}
+
+.secondary-button {
+  margin-top: 34px;
+  padding: 0 22px;
+  background: #111111;
+  color: #ffffff;
+  box-shadow: 0 16px 30px rgba(17, 17, 17, 0.16);
+}
+
+.templates-main {
+  padding: 84px 0 96px;
+}
+
+.templates-hero {
+  max-width: 820px;
+  margin: 0 auto 52px;
+  text-align: center;
+}
+
+.templates-hero h1 {
+  margin-bottom: 20px;
+  font-size: clamp(46px, 7vw, 78px);
+  font-weight: 860;
+  line-height: 1.05;
+}
+
+.templates-intro {
+  font-size: 18px;
+  line-height: 1.78;
+}
+
+.download-list {
+  display: grid;
+  gap: 18px;
+}
+
+.download-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 28px;
+  padding: 28px;
+}
+
+.download-card > div {
+  max-width: 720px;
+}
+
+.download-link {
+  flex: none;
+  min-width: 132px;
+  padding: 0 18px;
+  background: var(--brand);
+  color: #ffffff;
+  font-size: 14px;
 }
 
 .legal-main {
@@ -795,6 +891,28 @@ main,
   color: var(--muted);
 }
 
+.footer-separator {
+  color: var(--muted);
+}
+
+.record-links {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.police-record {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.police-record img {
+  width: 14px;
+  height: 14px;
+  object-fit: contain;
+}
+
 .has-js .reveal {
   opacity: 0;
   transform: translateY(24px);
@@ -868,6 +986,7 @@ main,
 
   .feature-grid,
   .pricing-grid,
+  .template-preview-grid,
   .pro-benefits ul {
     grid-template-columns: 1fr 1fr;
   }
@@ -915,7 +1034,7 @@ main,
   .preview-section,
   .features-section,
   .pricing-section,
-  .help-section {
+  .template-section {
     padding: 70px 0;
   }
 
@@ -948,6 +1067,7 @@ main,
 
   .feature-grid,
   .pricing-grid,
+  .template-preview-grid,
   .pro-benefits ul {
     grid-template-columns: 1fr;
   }
@@ -964,9 +1084,31 @@ main,
     font-size: 42px;
   }
 
-  .help-section {
+  .template-section {
     margin-bottom: 64px;
     padding: 42px 22px;
+  }
+
+  .templates-main {
+    padding: 54px 0 72px;
+  }
+
+  .templates-hero {
+    text-align: left;
+  }
+
+  .templates-hero h1 {
+    font-size: 42px;
+  }
+
+  .download-card {
+    align-items: flex-start;
+    flex-direction: column;
+    padding: 24px;
+  }
+
+  .download-link {
+    width: 100%;
   }
 
   .legal-main {
