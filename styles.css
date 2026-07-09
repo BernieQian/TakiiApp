@@ -1135,4 +1135,20 @@ main,
   .site-footer nav {
     justify-content: flex-start;
   }
+
+
+  .record-links {
+    align-items: flex-start;
+    flex-direction: column;
+    width: 100%;
+    gap: 6px;
+  }
+
+  .record-links a {
+    white-space: nowrap;
+  }
+
+  .record-links .footer-separator {
+    display: none;
+  }
 }
